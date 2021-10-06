@@ -1,0 +1,82 @@
+﻿using System;
+
+namespace Prvocislo
+{
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+            
+            Console.WriteLine("Napište libovolné číslo, a program vám vypíše, zda-li je to prvočíslo nebo ne.");
+            int pocet = 1;
+            bool While = false;
+            long a = long.Parse(Console.ReadLine());
+
+            if (a < 0)
+            {
+                Console.WriteLine("Číslo je záporné - vždy to bude prvočíslo.");
+                While = true;
+                Console.WriteLine("Klikněte na libovolnou klávesu pro ukončnení programu..");
+                Console.ReadKey();
+            }
+            double b;
+            b = Math.Sqrt(a);
+            while (While == false)
+            {
+                switch (a)
+                {
+                    case 0:
+                        Console.WriteLine("Nulou se dělit nedá - není to prvočíslo.");
+                        While = true;
+                        Console.WriteLine("Klikněte na libovolnou klávesu pro ukončnení programu..");
+                        Console.ReadKey();
+                        break;
+                    case 1:
+                        Console.WriteLine("Není to prvočíslo");
+                        While = true;
+                        Console.WriteLine("Klikněte na libovolnou klávesu pro ukončnení programu..");
+                        Console.ReadKey();
+                        break;
+
+                    case 2:
+                        Console.WriteLine("Je to prvočíslo");
+                        While = true;
+                        Console.WriteLine("Klikněte na libovolnou klávesu pro ukončnení programu..");
+                        Console.ReadKey();
+                        break;
+
+                    default:
+                        for (double i = 2; i <= b; i++)
+                        {
+                            double c = a / i;
+
+
+                            if ((c % 1) == 0)
+                            {
+                                Console.WriteLine("Není to prvočíslo");
+                                While = true;
+                                i = b;
+                                Console.WriteLine("Klikněte na libovolnou klávesu pro ukončnení programu..");
+                                Console.ReadKey();
+                            }
+                            else
+                            {
+                                pocet++;
+                            }
+                            if (pocet >= b)
+                            {
+                                Console.WriteLine("Je to prvočíslo");
+                                While = true;
+                                Console.WriteLine("Klikněte na libovolnou klávesu pro ukončnení programu..");
+                                Console.ReadKey();
+                            }
+                        }
+                        break;
+
+                }
+            }
+        }    
+    }    
+}
+
